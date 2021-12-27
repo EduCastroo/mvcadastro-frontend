@@ -1,0 +1,42 @@
+<h2>Cadastrar Clientes e Projetos</h2>
+<form>
+  <div class="form-group">
+  <select class="form-control" name="clientes" id="" (change)="idCliente($event)">
+    <option *ngFor='let cliente of listaClientes' value="{{cliente.id}}">{{cliente.nome}}</option>
+  </select>
+</div>
+<div class="form-group">
+  <select class="form-control" name="projetos" id="" (change)="idProjeto($event)">
+    <option *ngFor='let projeto of listaProjetos' value="{{projeto.codigoProjeto}}">{{projeto.nomeProjeto}}</option>
+  </select>
+</div>
+
+  <button class='btn btn-dark' (click)="addClienteProjeto()">cadastrar cliente/projeto</button>
+</form>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-8">Lista de Clientes e Projetos</h1>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Nome</th>
+    <th scope="col">CNPJ</th>
+    <th scope="col">Projeto</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let cliente of listaClientes">
+    <td>{{ cliente.nome }}</td>
+    <td>{{ cliente.cnpj }}</td>
+    <td *ngFor='let projeto of cliente.projetos'>
+      {{ projeto.nomeProjeto }}
+    </td>
+  </tr>
+</tbody>
+</table>
+
+

@@ -1,0 +1,124 @@
+<h2>Cadastrar Endereço</h2>
+<p>Todas as informações são obrigatórias, favor preencher!</p>
+<form>
+  <div class="form-group">
+    <label for="cliente">Cliente</label>
+    <select
+      [(ngModel)]="cliente.id"
+      class="form-control"
+      name="cliente"
+      id="cliente"
+      (change)='getId($event)'
+    >
+    <option *ngFor='let cliente of listaClientes' value="{{cliente.id}}">{{cliente.nome}}</option>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <label for="rua">Rua</label>
+    <input
+      [(ngModel)]="endereco.rua"
+      class="form-control"
+      type="text"
+      name="rua"
+      id="rua"
+      placeholder="digite o nome da rua"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="rua">Número</label>
+    <input
+      [(ngModel)]="endereco.numero"
+      class="form-control"
+      type="text"
+      name="número"
+      id="número"
+      placeholder="digite o complemento"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="rua">Complemento</label>
+    <input
+      [(ngModel)]="endereco.complemento"
+      class="form-control"
+      type="text"
+      name="número"
+      id="número"
+      placeholder="digite o complemento"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="bairro">Bairro</label>
+    <input
+      [(ngModel)]="endereco.bairro"
+      class="form-control"
+      type="text"
+      name="bairro"
+      id="bairro"
+      placeholder="digite o nome o bairro"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="cidade">Cidade</label>
+    <input
+      [(ngModel)]="endereco.cidade"
+      class="form-control"
+      type="text"
+      name="cidade"
+      id="cidade"
+      placeholder="digite o a cidade"
+    />
+  </div>
+  <div class="form-group">
+    <label for="estado">Estado</label>
+    <input
+      [(ngModel)]="endereco.estado"
+      class="form-control"
+      type="text"
+      name="estado"
+      id="estado"
+      placeholder="digite o estado"
+    />
+  </div>
+
+  <button class='btn btn-dark' (click)="cadEndereco()">Cadastrar endereço</button>
+</form>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-8">Lista de Endereços Cadastrados</h1>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Rua</th>
+    <th scope="col">Número</th>
+    <th scope="col">Complemento</th>
+    <th scope="col">Bairro</th>
+    <th scope="col">Cidade</th>
+    <th scope="col">Estado</th>
+    <th scope="col">Cliente - Nome</th>
+    <th scope="col">Cliente - CNPJ</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let endereco of listaEndereco">
+    <td>{{ endereco.rua }}</td>
+    <td>{{ endereco.numero }}</td>
+    <td>{{ endereco.complemento }}</td>
+    <td>{{ endereco.bairro }}</td>
+    <td>{{ endereco.cidade }}</td>
+    <td>{{ endereco.estado }}</td>
+    <td>{{ endereco.cliente.nome }}</td>
+    <td>{{ endereco.cliente.cnpj }}</td>
+  </tr>
+</tbody>
+</table>
+

@@ -1,0 +1,12 @@
+form{
+    margin: 20px 200px;
+}
+h2{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+p{
+    display: flex;
+    justify-content: center; 
+}

@@ -1,0 +1,50 @@
+<h2>Cadastrar Cliente</h2>
+<p>Todas as informações são obrigatórias, favor preencher!</p>
+<form>
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input
+      [(ngModel)]="cliente.nome"
+      class="form-control"
+      type="text"
+      name="nome"
+      id="nome"
+      placeholder="digite seu nome"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="cnpj">CNPJ</label>
+    <input
+      [(ngModel)]="cliente.cnpj"
+      class="form-control"
+      type="text"
+      name="cnpj"
+      id="cnpj"
+      placeholder="digite seu cnpj"
+    />
+  </div>
+
+  <button class='btn btn-dark' (click)="cadCliente()">Cadastrar Cliente</button>
+</form>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-8">Lista de Clientes Cadastrados</h1>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Nome</th>
+    <th scope="col">CNPJ</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let cliente of listaClientes">
+    <td>{{ cliente.nome }}</td>
+    <td>{{ cliente.cnpj }}</td>
+  </tr>
+</tbody>
+</table>
